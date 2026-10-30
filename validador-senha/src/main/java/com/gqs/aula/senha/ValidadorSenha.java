@@ -9,13 +9,18 @@ public class ValidadorSenha {
         }
 
         int quantidadeDigitos = 0;
+        boolean temMaiuscula = false;
 
         for (char caractere : senha.toCharArray()) {
             if (Character.isDigit(caractere)) {
                 quantidadeDigitos++;
             }
+
+            if (Character.isUpperCase(caractere)) {
+                temMaiuscula = true;
+            }
         }
 
-        return quantidadeDigitos >= 2;
+        return quantidadeDigitos >= 2 && temMaiuscula;
     }
 }

@@ -23,5 +23,14 @@ void deveRejeitarSenhaComMenosDeDoisDigitos() {
     assertFalse(resultado);
 }
 
+@Test
+void deveRejeitarSenhaSemLetraMaiuscula() {
+    ValidadorSenha validador = new ValidadorSenha();
+
+    boolean resultado = validador.validar("abcdef12!");
+
+    assertFalse(resultado);
+}
+
 }
 
