@@ -32,5 +32,14 @@ void deveRejeitarSenhaSemLetraMaiuscula() {
     assertFalse(resultado);
 }
 
+@Test
+void deveRejeitarSenhaSemCaractereEspecial() {
+    ValidadorSenha validador = new ValidadorSenha();
+
+    boolean resultado = validador.validar("Abcdef12");
+
+    assertFalse(resultado);
+}
+
 }
 

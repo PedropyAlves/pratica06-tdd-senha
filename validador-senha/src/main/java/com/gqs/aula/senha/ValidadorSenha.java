@@ -10,6 +10,7 @@ public class ValidadorSenha {
 
         int quantidadeDigitos = 0;
         boolean temMaiuscula = false;
+        boolean temEspecial = false;
 
         for (char caractere : senha.toCharArray()) {
             if (Character.isDigit(caractere)) {
@@ -19,8 +20,14 @@ public class ValidadorSenha {
             if (Character.isUpperCase(caractere)) {
                 temMaiuscula = true;
             }
+
+            if (!Character.isLetterOrDigit(caractere)) {
+                temEspecial = true;
+            }
         }
 
-        return quantidadeDigitos >= 2 && temMaiuscula;
+        return quantidadeDigitos >= 2
+                && temMaiuscula
+                && temEspecial;
     }
 }
