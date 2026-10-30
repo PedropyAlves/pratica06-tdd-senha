@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidadorSenhaTest {
 
@@ -55,6 +56,15 @@ void deveRetornarMultiplosErrosParaSenhaInvalida() {
     assertEquals("A senha deve conter pelo menos 2 dígitos", erros.get(1));
     assertEquals("A senha deve conter ao menos uma letra maiúscula", erros.get(2));
     assertEquals("A senha deve conter pelo menos um caractere especial", erros.get(3));
+}
+
+@Test
+void deveAceitarSenhaValida() {
+    ValidadorSenha validador = new ValidadorSenha();
+
+    boolean resultado = validador.validar("Abcdef12!");
+
+    assertTrue(resultado);
 }
 
 }
