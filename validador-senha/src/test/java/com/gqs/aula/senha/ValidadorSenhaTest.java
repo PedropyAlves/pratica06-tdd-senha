@@ -14,5 +14,14 @@ public class ValidadorSenhaTest {
 
         assertFalse(resultado);
     }
+    @Test
+void deveRejeitarSenhaComMenosDeDoisDigitos() {
+    ValidadorSenha validador = new ValidadorSenha();
+
+    boolean resultado = validador.validar("Abcdefg1!");
+
+    assertFalse(resultado);
+}
+
 }
 
